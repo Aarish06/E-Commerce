@@ -1,75 +1,43 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# E-Commerce Website/Platform with third party intigration
+ 
+ 
+## Project Overview
+This project is a web application integrated with Shopify that allows users to preview customized and purchase custom-designed hoodies and t-shirts.
+The platform focuses on bold, expressive designs while providing a smooth and secure e-commerce experience powered by Shopify and Printify.
+ 
+---
+ 
+## Project Team
+ 
+### Team Name
+**Rookies**
+ 
+### Team Members
+- Aarish Bansal
+- Navkaran Singh
+- Dilpreet Singh
+ 
+---
+ 
+## Project General Description
+ 
+The goal of this project is to build a E-Commerce website that enables users to purchase apparel with unique and expressive designs. The platform connects directly with Shopify for product management, checkout, and order processing.
+ 
+### High-Level User Stories
+ 
+- As a user, I want customized hoodies and t-shirts by selecting designs, colors, and sizes, so that I can purchase clothing that reflects my personal style.
+ 
+- As a user, I want to preview my custom design before purchasing, so that I can be confident about how the final product will look.
+ 
+- As an admin, I want to manage products, designs, and orders through Shopify, so that inventory and sales can be handled efficiently.
+ 
+---
+ 
+## Technologies Used
+ 
+- Frontend: HTML, CSS, JavaScript and React
+- Backend: Node.js / API services
+- E-commerce Platform: Shopify & Printify
+- Version Control: Git & GitHub
+- Deployment: Vercel
+---

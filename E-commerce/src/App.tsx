@@ -1,10 +1,25 @@
-import Header from "./components/Header/header"
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Listing from './pages/addproduct';
+import Login from './pages/login';
+import About from './pages/about';
+import Navbar from './components/navbar';
+import Addproduct from './pages/addproduct';
+import ProductList from './pages/listing';
 
-function App() {
+const App = () => {
   return (
-      <div className="Header">
-        <Header/>
-      </div>
+    <BrowserRouter>
+    <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/Productlist' element={<ProductList/>}></Route>
+        <Route path='/Addproduct' element={<Addproduct/>}></Route><Route/>
+        <Route path='/Login' element={<Login/>}></Route>
+        <Route path='/About' element={<About/>}></Route>      
+      </Routes>
+    </BrowserRouter>
   )
 }
 

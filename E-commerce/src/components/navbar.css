@@ -1,0 +1,120 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+  font-family: system-ui, sans-serif;
+}
+
+/* TOP BAR */
+.logo {
+  width: 100%;
+  background: linear-gradient(180deg, #cfefff, #b7e6ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.nav-bottom {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* BOTTOM BAR*/
+.searchbar,
+.menu,
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar > .searchbar,
+.navbar > nav,
+.navbar > .auth-buttons {
+  background-color: white;
+}
+
+.searchbar {
+  padding-left: 24px;
+}
+
+.menu {
+  flex: 2;
+  justify-content: center;
+  display: flex;
+}
+
+.auth-buttons {
+  gap: 10px;
+  padding-right: 24px;
+}
+
+/* MENU*/
+.menu-btn {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+}
+
+.menu-btn a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 14px;
+}
+
+.menu-btn a:hover {
+  background-color: #f2f2f2;
+}
+
+
+.menu-btn a.active {
+  background-color: #e8e8e8;
+}
+
+/* AUTH BUTTONS */
+.login-btn {
+  background: #f2f2f2;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.signup-btn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  background: #000;
+}
+
+.searchbar,
+.menu,
+.auth-buttons {
+  height: 56px;
+}

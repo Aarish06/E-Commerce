@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import './navbar.css'
 import SearchBar from './searchbar';
-import logo from '../assets/logo.svg'
 
 type NavbarProps = {
   onSearch: (value: string) => void;
@@ -14,7 +13,7 @@ const Navbar = ({onSearch}: NavbarProps) => {
       {/* TOP BAR */}
       <div className="logo">
         <NavLink to="/">
-          <img src={logo} alt="Logo" />
+          <img src="/logo.svg" alt="Logo" />
         </NavLink>
       </div>
 

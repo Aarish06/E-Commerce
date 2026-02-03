@@ -44,6 +44,8 @@ const ProductList = ({searchQuery}: ProductlistProps) => {
           </div>
         ))}
       </div>
+
+      
     </div>
   );
 };

@@ -9,7 +9,11 @@ type Product = {
   image: string;
 };
 
-const ProductList = () => {
+type ProductlistProps = {
+  searchQuery: string;
+}
+
+const ProductList = ({searchQuery}: ProductlistProps) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -19,11 +23,15 @@ const ProductList = () => {
     }
   }, []);
 
+  const filteredProducts = products.filter((p) =>
+    p.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="product-page">
       <h2>All Products</h2>
-
-      {products.length === 0 && <p>No products available.</p>}
+      
+      {filteredProducts.length === 0 && <p>No products available.</p>}
 
       <div className="product-grid">
         {products.map((p) => (

@@ -4,7 +4,10 @@ import './navbar.css'
 import SearchBar from './searchbar';
 import logo from '../assets/logo.svg'
 
-const Navbar = () => {
+type NavbarProps = {
+  onSearch: (value: string) => void;
+}
+const Navbar = ({onSearch}: NavbarProps) => {
   return (
     <div className="navbar">
 
@@ -18,7 +21,7 @@ const Navbar = () => {
       {/* BOTTOM BAR */}
       <div className="nav-bottom">
         <div className="searchbar">
-          <SearchBar />
+          <SearchBar onSearch={onSearch}/>
         </div>
 
         <nav className="menu">

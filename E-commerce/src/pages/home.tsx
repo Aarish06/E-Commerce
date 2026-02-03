@@ -10,9 +10,6 @@ const Home = () => {
         <NavLink to='/Productlist'>
           <img className = 'BannerSvg' src={Banner} alt="Logo" />
         </NavLink>
-        <NavLink to='/Productlist'>
-          <button className="explore-btn">Explore Now</button>
-        </NavLink>
       </div>
     </section>
   );

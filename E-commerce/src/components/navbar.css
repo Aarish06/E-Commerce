@@ -16,7 +16,7 @@
 /* TOP BAR */
 .logo {
   width: 100%;
-  background: linear-gradient(180deg, #cfefff, #b7e6ff);
+  background: linear-gradient(180deg, #0f3212, #235830);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,13 +25,14 @@
 
 .nav-bottom {
   width: 100%;
-  background: rgb(255, 255, 255);
+  background: rgb(179, 191, 188);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
   height: 60px;
 }
+
 
 .logo img {
   height: 40px;
@@ -48,7 +49,7 @@
 .navbar > .searchbar,
 .navbar > nav,
 .navbar > .auth-buttons {
-  background-color: white;
+  background: rgb(179, 191, 188);
 }
 
 .searchbar {
@@ -82,26 +83,27 @@
 }
 
 .menu-btn a:hover {
-  background-color: #f2f2f2;
+  color:rgb(245, 245, 245)
 }
 
 
 .menu-btn a.active {
-  background-color: #e8e8e8;
+  background-color: #040404;
+  color: rgb(245, 245, 245);
 }
 
 /* AUTH BUTTONS */
 .login-btn {
-  background: #f2f2f2;
+  background: rgb(179, 191, 188);
   color: black;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   padding: 6px 14px;
   border-radius: 6px;
   cursor: pointer;
 }
 
 .signup-btn {
-  background: #333;
+  background: #000000;
   color: white;
   border: none;
   padding: 6px 14px;

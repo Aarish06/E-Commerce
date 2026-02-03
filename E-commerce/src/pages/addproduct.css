@@ -1,11 +1,11 @@
 :root {
-  --bg-main: #eaf7ff;
-  --card-bg: #ffffff;
-  --primary: #bfeeff;
-  --text-dark: #1f2937;
+  --bg-main: linear-gradient(180deg, #0f3212, #235830);
+  --card-bg: rgb(179, 191, 188);
+  --primary: linear-gradient(180deg, #0f3212, #235830);
+  --text-dark: #ffffff;
   --text-muted: #6b7280;
-  --border: #e5e7eb;
-  --danger: #ef4444;
+  --border: #453d3d;
+  --danger: #cea1a1;
   --radius: 20px;
   --shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
 }
@@ -14,7 +14,6 @@
 .product-page {
   min-height: 100vh;
   padding: 60px 20px;
-  background: linear-gradient(180deg, #cfefff, #b7e6ff);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-dark);
   max-width: 1100px;
@@ -54,7 +53,7 @@
 
 .product-form input:focus,
 .product-form textarea:focus {
-  border-color: #93c5fd;
+  border-color: #5e5e5e;
   box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.3);
 }
 
@@ -74,12 +73,13 @@
 }
 
 .cartbtn {
-    background-color: #1f2937;
-    color: #e0f2fe;
+  background: linear-gradient(180deg, #0f3212, #235830);
+  color: #ffffff;
 }
 /* PRIMARY BUTTON */
 .product-form button {
   background: var(--primary);
+  color: #ffffff;
   border: none;
   padding: 14px 32px;
   border-radius: 999px;
@@ -105,6 +105,7 @@
 .product-card {
   background: var(--card-bg);
   padding: 18px;
+  color: ffffff;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -150,12 +151,12 @@
 }
 
 .card-actions .edit {
-  background: #e0f2fe;
+  background: rgb(231, 233, 232);
 }
 
 .card-actions .delete {
-  background: #fee2e2;
-  color: var(--danger);
+  background: #b50404;
+  color:#000000;
 }
 
 .card-actions button:hover {

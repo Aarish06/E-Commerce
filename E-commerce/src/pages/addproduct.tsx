@@ -1,4 +1,5 @@
-import { useEffect, useState, ChangeEvent, FormEvent } from "react";
+import { useEffect, useState } from "react";
+import {ChangeEvent, FormEvent} from "react";
 import "./addproduct.css";
 
 type Product = {

@@ -1,35 +1,27 @@
 .hero {
   width: 100%;
-  padding: 70px 0 120px;
+  padding: 40px 0 1px;
   display: flex;
   justify-content: center;
 }
- 
 
 .banner {
   position: relative;
   width: 92%;
   max-width: 1200px;
-  height: 100px;
-  background: #6892a1;
+  height: 300px;
   border-radius: 40px;
+  overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
- 
-.banner-notch::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
-  z-index: -1;
-}
- 
-.BannerSvg{
-  position: relative;
+
+.banner img {
   width: 100%;
-  background: #6892a1;
-  border-radius: 40px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
- }
+  height: 100%;
+  object-fit: cover;
+  display: block;   
+}
+
+.listings {
+  margin-top: 10px;
+}

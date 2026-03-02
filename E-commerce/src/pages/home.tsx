@@ -8,7 +8,9 @@ import "./home.css";
 import type { Product } from "../types/Product";
 
 const Home = () => {
+  const { role } = useAuth();
   const { getTopLiked } = useProducts();
+  const { banner, updateBanner } = useBanner();
 
   const [topProducts, setTopProducts] = useState<Product[]>([]);
 

@@ -17,7 +17,7 @@ const Navbar = ({onSearch}: NavbarProps) => {
       {/* TOP BAR */}
       <div className="logo">
         <NavLink to="/">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="p" />
         </NavLink>
       </div>
 

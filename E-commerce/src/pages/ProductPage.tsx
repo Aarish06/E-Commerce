@@ -47,9 +47,12 @@ const ProductPage = () => {
     });
   };
 
-  function handleImage(event: ChangeEvent<HTMLInputElement, HTMLInputElement>): void {
-    throw new Error("Function not implemented.");
-  }
+  function handleImage(event: ChangeEvent<HTMLInputElement>): void {
+  const file = event.target.files?.[0];
+    if (file) {
+      setForm({...form, image: URL.createObjectURL(file)});
+    }
+}
 
 return (
   <div className="product-page">

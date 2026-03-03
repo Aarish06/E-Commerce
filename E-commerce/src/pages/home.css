@@ -5,11 +5,10 @@
   justify-content: center;
 }
  
-
 .banner {
   position: relative;
   width: 92%;
-  max-width: 1200px;
+  max-width: 100%;
   height: 100px;
   background: #6892a1;
   border-radius: 40px;

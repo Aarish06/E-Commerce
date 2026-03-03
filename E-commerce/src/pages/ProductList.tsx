@@ -1,98 +1,62 @@
 import { useProducts } from "../hooks/useProducts";
-import { useAuth } from "../context/AuthContext";
-import { Navigate } from "react-router-dom";
-import { useState, type ChangeEvent } from "react";
-import type { Product } from "../types/Product";
+import like from "../public/like.svg";
+import dislike from "../public/dislike.svg";
+import "./ProductPage.css";
 
-const ProductPage = () => {
-  const { role, isLoggedIn } = useAuth();
-  const { products, loadProducts, addProduct, updateProduct, deleteProduct } = useProducts();
+const ProductList = () => {
+  const {
+    products,
+    likeProduct,
+    dislikeProduct,
+    loadProducts
+  } = useProducts();
 
-  if (!isLoggedIn || role !== "admin") {
-    return <Navigate to="/" replace />;
+  if (products.length === 0) {
+    return <p>No products to show.</p>;
   }
 
-  const [form, setForm] = useState({
-    name: "",
-    price: "",
-    description: "",
-    image: ""
-  });
+  return (
+    <div className="product-page">
+      <h2>All Products</h2>
 
-  const [editingId, setEditingId] = useState<number | null>(null);
+      <div className="product-grid">
+        {products.map((p) => (
+          <div key={p.id} className="product-card">
+            {p.image && <img src={p.image} alt={p.name} />}
+            <h3>{p.name}</h3>
+            <p>${p.price}</p>
+            <p>{p.description}</p>
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+            <button className="cartbtn">Add to cart</button>
 
-    if (editingId !== null) {
-      const existing = products.find(p => p.id === editingId);
-      if (!existing) return;
+            <div className="actionbtn">
+              <button
+                className="like"
+                onClick={() => {
+                  likeProduct(p.id);
+                  loadProducts();
+                }}
+              >
+                <img src={like} alt="Like" />
+                <p>{p.likes}</p>
+              </button>
 
-      const updatedProduct: Product = {
-        ...existing,      
-        name: form.name,
-        price: parseFloat(form.price),
-        description: form.description,
-        image: form.image
-      };
-
-      updateProduct(updatedProduct);
-      setEditingId(null);
-    }
-
-    loadProducts();
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  function handleImage(event: ChangeEvent<HTMLInputElement, HTMLInputElement>): void {
-    throw new Error("Function not implemented.");
-  }
-
-return (
-  <div className="product-page">
-    <h2>{editingId ? "Edit Product" : "Add Product"}</h2>
-
-    <form onSubmit={handleSubmit} className="product-form">
-      <input
-        name="name"
-        placeholder="Product Name"
-        value={form.name}
-        onChange={handleChange}
-        required
-      />
-
-      <input
-        name="price"
-        placeholder="Price"
-        value={form.price}
-        onChange={handleChange}
-        required
-      />
-
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={form.description}
-        onChange={handleChange}
-        required
-      />
-
-      <input type="file" accept="image/*" onChange={handleImage} />
-
-      <button type="submit">
-        {editingId ? "Update Product" : "Add Product"}
-      </button>
-    </form>
-  </div>
-);
+              <button
+                className="dislike"
+                onClick={() => {
+                  dislikeProduct(p.id);
+                  loadProducts();
+                }}
+              >
+                <img src={dislike} alt="Dislike" />
+                <p>{p.dislikes}</p>
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default ProductPage;
+export default ProductList;

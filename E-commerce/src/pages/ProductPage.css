@@ -65,17 +65,12 @@
 /* IMAGE PREVIEW */
 .image-preview {
   width: 140px;
-  height: 140px;
-  object-fit: cover;
+  height: 200px;
   border-radius: 16px;
   box-shadow: var(--shadow);
   margin-bottom: 18px;
 }
 
-.cartbtn {
-  background: linear-gradient(180deg, #0f3212, #235830);
-  color: #ffffff;
-}
 /* PRIMARY BUTTON */
 .product-form button {
   background: var(--primary);
@@ -118,7 +113,7 @@
 
 .product-card img {
   width: 100%;
-  height: 170px;
+  height: 400px;
   object-fit: cover;
   border-radius: 14px;
   margin-bottom: 14px;
@@ -162,3 +157,59 @@
 .card-actions button:hover {
   opacity: 0.85;
 }
+
+.actionbtn {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.cartbtn {
+  flex: 1;
+  height: 44px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: var(--primary);
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cartbtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.actionbtn .like,
+.actionbtn .dislike {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: rgba(15, 50, 18, 0.15);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.actionbtn img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+}
+
+.actionbtn .like:hover,
+.actionbtn .dislike:hover {
+  background: rgba(15, 50, 18, 0.25);
+  transform: translateY(-1px);
+}
+
+.actionbtn .like:active,
+.actionbtn .dislike:active {
+  transform: scale(0.96);
+}
+

@@ -17,9 +17,18 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+
+/**
+ * Provides authentication state and actions to all child components.
+ */
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
+
+  /**
+   * Attempts to log in a user using the auth service.
+   * Returns true if successful, otherwise false.
+   */
   const login = (username: string, password: string): boolean => {
     const foundUser = authService.login(username, password);
 
@@ -28,7 +37,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(foundUser);
     return true;
   };
-
+  /**
+   * Logs out the current user by clearing the user state.
+   */
   const logout = () => {
     setUser(null);
   };
@@ -48,6 +59,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+/**
+ * Custom hook to access authentication context.
+ *
+ * Must be used within an AuthProvider.
+ *
+ * @throws Error if used outside of AuthProvider
+ * @returns AuthContextType
+ */
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

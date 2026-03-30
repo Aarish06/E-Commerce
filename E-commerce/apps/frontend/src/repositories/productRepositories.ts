@@ -1,30 +1,68 @@
 import type { Product } from "../types/Product";
-import { testProducts } from "../data/testProducts";
+
+const API_BASE_URL = "http://localhost:3000/api";
 
 class ProductRepository {
 
-  private products: Product[] = [...testProducts];
-
-  getAll(): Product[] {
-    return this.products;
+  async getAll(): Promise<Product[]> {
+    const response = await fetch(`${API_BASE_URL}/products`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch products");
+    }
+    const data = await response.json();
+    return data.data || [];
   }
 
-  create(product: Product): void {
-    this.products.push(product);
+  async create(product: Omit<Product, "id">): Promise<Product> {
+    const response = await fetch(`${API_BASE_URL}/products`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to create product");
+    }
+    const data = await response.json();
+    return data.data;
   }
 
-  update(updatedProduct: Product): void {
-    this.products = this.products.map(p =>
-      p.id === updatedProduct.id ? updatedProduct : p
-    );
+  async update(updatedProduct: Product): Promise<Product> {
+    const response = await fetch(`${API_BASE_URL}/products/${updatedProduct.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedProduct),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to update product");
+    }
+    const data = await response.json();
+    return data.data;
   }
 
-  delete(id: number): void {
-    this.products = this.products.filter(p => p.id !== id);
+  async delete(id: number): Promise<void> {
+    const response = await fetch(`${API_BASE_URL}/products/${id}`, {
+      method: "DELETE",
+    });
+    if (!response.ok) {
+      throw new Error("Failed to delete product");
+    }
   }
 
-  saveAll(products: Product[]): void {
-    this.products = products;
+  async rateProduct(id: number, isLike: boolean): Promise<void> {
+    const response = await fetch(`${API_BASE_URL}/products/${id}/rate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isLike }),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to rate product");
+    }
   }
 }
 

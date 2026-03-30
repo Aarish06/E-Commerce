@@ -1,0 +1,16 @@
+{
+  "name": "@ecommerce/backend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "ts-node src/server.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  }
+}

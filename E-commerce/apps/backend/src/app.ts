@@ -1,7 +1,11 @@
 import express, { Express } from "express";
+import cors from "cors";
   
 // Initialize Express application
 const app: Express = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Define a route
 app.get("/", (req, res) => {

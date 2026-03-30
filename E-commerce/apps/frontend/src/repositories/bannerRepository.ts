@@ -26,6 +26,21 @@ class BannerRepository {
     const data = await response.json();
     return data.data;
   }
+
+  async update(id: number, banner: Partial<Banner>): Promise<Banner> {
+    const response = await fetch(`${API_BASE_URL}/banners/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(banner),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to update banner");
+    }
+    const data = await response.json();
+    return data.data;
+  }
 }
 
 export const bannerRepository = new BannerRepository();

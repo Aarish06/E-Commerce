@@ -27,7 +27,7 @@ const Home = () => {
           <NavLink to="/Productlist">
             <img
               className="BannerSvg"
-              src={banner.image || Banner}
+              src={banner?.image || Banner}
               alt="Banner"
             />
           </NavLink>
@@ -39,13 +39,13 @@ const Home = () => {
                 type="file"
                 accept="image/*"
                 hidden
-                onChange={(e) => {
+                onChange={async (e) => {
                   const file = e.target.files?.[0];
                   if (!file) return;
 
                   const reader = new FileReader();
-                  reader.onloadend = () => {
-                    updateBanner(reader.result as string);
+                  reader.onloadend = async () => {
+                    await updateBanner(reader.result as string);
                   };
                   reader.readAsDataURL(file);
                 }}

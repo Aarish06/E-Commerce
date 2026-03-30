@@ -3,14 +3,20 @@ import type { Product } from "../types/Product";
 const API_BASE_URL = "http://localhost:3000/api";
 
 class ProductRepository {
+  private products: Product[] = [];
 
-  async getAll(): Promise<Product[]> {
+  getAll(): Product[] {
+    return this.products;
+  }
+
+  async loadAll(): Promise<Product[]> {
     const response = await fetch(`${API_BASE_URL}/products`);
     if (!response.ok) {
       throw new Error("Failed to fetch products");
     }
     const data = await response.json();
-    return data.data || [];
+    this.products = data.data || [];
+    return this.products;
   }
 
   async create(product: Omit<Product, "id">): Promise<Product> {
@@ -63,6 +69,10 @@ class ProductRepository {
     if (!response.ok) {
       throw new Error("Failed to rate product");
     }
+  }
+
+  saveAll(products: Product[]): void {
+    this.products = products;
   }
 }
 

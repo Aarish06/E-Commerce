@@ -3,6 +3,10 @@ import type { Product } from "../types/Product";
 
 class ProductService {
 
+  loadProducts(): Promise<Product[]> {
+    return productRepository.loadAll();
+  }
+
   getProducts(): Product[] {
     return productRepository.getAll();
   }

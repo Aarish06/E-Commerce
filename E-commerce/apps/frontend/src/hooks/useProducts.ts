@@ -14,13 +14,17 @@ import { productService } from "../services/productService";
  */
 export function useProducts() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
 
   /**
    * Loads products from productService
    * and updates local state.
    */
-  const loadProducts = () => {
-    setProducts(productService.getProducts());
+  const loadProducts = async () => {
+    setLoading(true);
+    const loaded = await productService.loadProducts();
+    setProducts(loaded);
+    setLoading(false);
   };
 
   /**

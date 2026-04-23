@@ -5,23 +5,63 @@ export const userService = {
     return prisma.user.findMany();
   },
 
-  async getById(id: number) {
-    return prisma.user.findUnique({
-      where: { id }
+    async getById(id: string) {
+  return prisma.user.findUnique({
+    where: { id }
+  });
+},
+
+  async create(data: {
+  id: string;
+  email: string;
+  name: string;
+}) {
+  return prisma.user.create({
+    data: {
+      id: data.id,
+      email: data.email,
+      name: data.name
+    }
+  });
+},
+
+  async syncFromClerk(data: {
+    id: string;
+    email: string;
+    name: string | null;
+    avatarUrl: string | null;
+  }) {
+    return prisma.user.upsert({
+      where: { id: data.id },
+      update: {
+        email: data.email,
+        name: data.name,
+        avatarUrl: data.avatarUrl,
+      },
+      create: {
+        id: data.id,
+        email: data.email,
+        name: data.name,
+        avatarUrl: data.avatarUrl,
+      }
     });
   },
 
-  async create(data: {
-    email: string;
-    name: string;
-    password?: string;
+  async updateProfile(id: string, data: {
+    name?: string;
+    phone?: string;
+    address?: string;
+    avatarUrl?: string;
   }) {
-    return prisma.user.create({
-      data: {
-        email: data.email,
-        name: data.name,
-        password: data.password
-      }
+    return prisma.user.update({
+      where: { id },
+      data
+    });
+  },
+
+  async deleteById(id: string) {
+    return prisma.user.delete({
+      where: { id }
     });
   }
 };

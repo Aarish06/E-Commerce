@@ -30,11 +30,12 @@ model Product {
 model ProductRating {
   id        Int      @id @default(autoincrement())
   productId Int
-  userId    Int?
+  userId    String?
   isLike    Boolean
   createdAt DateTime @default(now())
   
   product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
   
   @@unique([productId, userId])
   @@index([productId])

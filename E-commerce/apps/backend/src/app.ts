@@ -1,7 +1,10 @@
 import express, { Express } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-
+import webhookRoutes from "./api/v1/routes/webhookRoutes";
+import productRoutes from "./api/v1/routes/productRoutes";
+import userRoutes from "./api/v1/routes/userRoutes";
+import bannerRoutes from "./api/v1/routes/bannerRoutes";
 // Load environment variables
 dotenv.config();
 
@@ -10,7 +13,10 @@ const app: Express = express();
 
 // Enable CORS for all routes
 app.use(cors());
-
+app.use("/api/v1/webhooks", webhookRoutes);
+app.use("/api/v1/products", productRoutes);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/banners", bannerRoutes);
 // Define a route
 app.get("/", (req, res) => {
     res.send("Hello, World!");

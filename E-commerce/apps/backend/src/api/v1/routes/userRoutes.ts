@@ -1,15 +1,17 @@
 import { Router } from "express";
 import { userController } from "../controllers/userController";
+import { clerkAuthMiddleware } from "../middleware/clerkAuth";
 
 const router = Router();
 
-// GET all users
 router.get("/", userController.getAll);
 
-// GET single user
 router.get("/:id", userController.getById);
 
-// POST create user
-router.post("/", userController.create);
+router.get("/me/profile", clerkAuthMiddleware, userController.getAll);
+
+router.put("/me/profile", clerkAuthMiddleware, userController.updateProfile);
+
+router.delete("/:id", clerkAuthMiddleware, userController.deleteById);
 
 export default router;

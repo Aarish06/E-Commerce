@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useUser } from "@clerk/clerk-react";
 import { useBanner } from "../hooks/useBanner";
 import { useProducts } from "../hooks/useProducts";
 import Banner from "../public/Banner.svg";
@@ -8,7 +8,8 @@ import "./home.css";
 import type { Product } from "../types/Product";
 
 const Home = () => {
-  const { role } = useAuth();
+  const { user } = useUser();
+  const isAdmin = user?.publicMetadata?.role === "admin";
   const { getTopLiked } = useProducts();
   const { banner, updateBanner } = useBanner();
 
@@ -32,7 +33,7 @@ const Home = () => {
             />
           </NavLink>
 
-          {role === "admin" && (
+          {isAdmin && (
             <label className="banner-camera">
               +
               <input

@@ -84,7 +84,7 @@ export const productService = {
       where: {
         productId_userId: {
           productId,
-          userId: userId || 0
+          userId: (userId?.toString()) || "0"
         }
       },
       update: {
@@ -92,7 +92,7 @@ export const productService = {
       },
       create: {
         productId,
-        userId: userId || 0,
+        userId: (userId?.toString()) || "0",
         isLike
       }
     });

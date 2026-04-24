@@ -2,7 +2,8 @@
   "name": "@ecommerce/frontend",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.61.6",

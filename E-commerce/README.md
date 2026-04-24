@@ -121,8 +121,6 @@ Frontend Environment Variables
         npm run start:backend	Starts only the backend API server
         npm run build	Builds both frontend and backend for production
         npm run test	Runs tests for both applications
-        Prisma Commands
-        Database Operations
 
     # Create and run migrations
     npx prisma migrate dev --name migration_name

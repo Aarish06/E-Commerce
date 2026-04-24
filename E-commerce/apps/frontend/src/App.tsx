@@ -6,12 +6,10 @@ import About from './pages/about';
 import Navbar from './components/navbar';
 import ProductPage from './pages/ProductPage';
 import ProductList from './pages/ProductList';
-import { AuthProvider } from "./context/AuthContext";
 
 const App = () => {
   const [searchQuery ,setSearchQuery] = useState("");
   return (
-    <AuthProvider>
       <BrowserRouter>
       <Navbar onSearch={setSearchQuery}/>
         <Routes>
@@ -22,7 +20,6 @@ const App = () => {
           <Route path='/About' element={<About/>}></Route>      
         </Routes>
       </BrowserRouter>
-    </AuthProvider>
   )
 }
 

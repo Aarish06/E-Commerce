@@ -2,7 +2,8 @@
   "name": "@ecommerce/backend",
   "version": "1.0.0",
   "scripts": {
-    "dev": "ts-node src/server.ts"
+    "dev": "ts-node src/server.ts",
+    "build": "npx prisma generate"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
